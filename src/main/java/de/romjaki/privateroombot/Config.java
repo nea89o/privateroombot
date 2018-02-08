@@ -6,7 +6,7 @@ import java.io.FileReader;
 
 public class Config {
 
-    public static Config CONFIG;
+    static Config CONFIG;
 
     static {
         try {
