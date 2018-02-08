@@ -15,7 +15,6 @@ import static de.romjaki.privateroombot.Config.CONFIG;
 public class VoiceChannelJoinListener extends ListenerAdapter {
     @Override
     public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
-        super.onGuildVoiceJoin(event);
         if (!event.getChannelJoined().getId().equals(CONFIG.from_channel_id)) {
             return;
         }
@@ -29,7 +28,6 @@ public class VoiceChannelJoinListener extends ListenerAdapter {
 
     @Override
     public void onGuildVoiceMove(GuildVoiceMoveEvent event) {
-        super.onGuildVoiceMove(event);
         VoiceChannelJoinListener.this.onGuildVoiceLeave(
                 new GuildVoiceLeaveEvent(
                         event.getJDA(),
@@ -42,7 +40,6 @@ public class VoiceChannelJoinListener extends ListenerAdapter {
 
     @Override
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event) {
-        super.onGuildVoiceLeave(event);
         if (!event.getChannelLeft().getParent().getId().equals(CONFIG.category_id)) {
             return;
         }
