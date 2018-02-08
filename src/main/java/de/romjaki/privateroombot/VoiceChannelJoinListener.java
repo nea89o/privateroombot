@@ -21,7 +21,7 @@ public class VoiceChannelJoinListener extends ListenerAdapter {
         Guild guild = event.getGuild();
         Member member = event.getMember();
         Category category = guild.getCategoryById(CONFIG.category_id);
-        VoiceChannel newChannel = (VoiceChannel) category.createVoiceChannel(member.getEffectiveName() + " - privat").complete();
+        VoiceChannel newChannel = (VoiceChannel) category.createVoiceChannel(String.format(CONFIG.format, member.getEffectiveName())).complete();
         newChannel.createPermissionOverride(member).setAllow(Permission.VOICE_MOVE_OTHERS).queue();
         guild.getController().moveVoiceMember(member, newChannel).queue();
     }
@@ -40,7 +40,8 @@ public class VoiceChannelJoinListener extends ListenerAdapter {
 
     @Override
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event) {
-        if (!event.getChannelLeft().getParent().getId().equals(CONFIG.category_id)) {
+        Category cat = event.getChannelLeft().getParent();
+        if (cat == null || !cat.getId().equals(CONFIG.category_id)) {
             return;
         }
         VoiceChannel channel = event.getChannelLeft();

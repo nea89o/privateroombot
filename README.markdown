@@ -13,7 +13,8 @@ also add a file called `config.json` with the following content:
 {
   "token": "TOKEN",
   "from_channel_id": "the channel you want people to join in order to get an own channel. see ID's",
-  "category_id": "the channel category you want all channels to be collected in. see ID's"
+  "category_id": "the channel category you want all channels to be collected in. see ID's",
+  "format": "(optional). put the name of the private room channel in here. %s will be replaced with the name."
 }
 ```
 you can get your bots token from [the discord developers page][1]

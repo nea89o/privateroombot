@@ -19,4 +19,5 @@ public class Config {
     String token;
     String from_channel_id;
     String category_id;
+    String format = "privat - %s";
 }
