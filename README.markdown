@@ -6,7 +6,7 @@ simply join a voice channel and get redirected to your own private channel where
 
 ### setup
 
-download a release and put in a separate folder.
+download a [![Github Releases](https://img.shields.io/github/downloads/romangraef/privateroombot/latest/total.svg)][2] and put in a separate folder.
 also add a file called `config.json` with the following content:
 
 ```json
@@ -32,3 +32,4 @@ discord ids identify a channel/user. you can view them by
 - right-click on the channel -> copy id. then paste in the `config.json`
 
 [1]: https://discordapp.com/developers/applications/me
+[2]: https://github.com/romangraef/privateroombot/releases/latest
