@@ -1,10 +1,33 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+    }
+}
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '2.0.2'
+}
+
+shadowJar {
+    classifier = 'shadow'
+}
+
 group 'de.romjaki'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
+mainClassName = 'de.romjaki.privateroombot.Main'
 
 sourceCompatibility = 1.8
 
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
 repositories {
     mavenCentral()
     jcenter()
